@@ -195,6 +195,48 @@
         function changeBackground(color) {
             body.style.background = `linear-gradient(45deg, ${color}, #000000)`;
         }
+
+        document.addEventListener("keydown", function (event) {
+    if (
+        event.key === "F12" || 
+        (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "J")) || 
+        (event.ctrlKey && event.key === "U")
+    ) {
+        showWarning();
+        event.preventDefault();
+    }
+});
+
+// Disable right-click
+document.addEventListener("contextmenu", function (event) {
+    showWarning();
+    event.preventDefault();
+});
+
+// Show a colorful warning message
+function showWarning() {
+    let warningBox = document.createElement("div");
+    warningBox.innerHTML = "🚫 Access Denied! Developer Tools are Disabled.";
+    warningBox.style.position = "fixed";
+    warningBox.style.top = "50%";
+    warningBox.style.left = "50%";
+    warningBox.style.transform = "translate(-50%, -50%)";
+    warningBox.style.background = "linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet)";
+    warningBox.style.color = "white";
+    warningBox.style.padding = "20px";
+    warningBox.style.fontSize = "20px";
+    warningBox.style.fontWeight = "bold";
+    warningBox.style.borderRadius = "10px";
+    warningBox.style.boxShadow = "0px 0px 10px rgba(0, 0, 0, 0.5)";
+    warningBox.style.zIndex = "9999";
+
+    document.body.appendChild(warningBox);
+
+    setTimeout(() => {
+        warningBox.remove();
+    }, 2000);
+}
+
     </script>
 </body>
 </html>
