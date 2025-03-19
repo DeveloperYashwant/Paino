@@ -196,27 +196,47 @@
             body.style.background = `linear-gradient(45deg, ${color}, #000000)`;
         }
 
-        document.addEventListener("keydown", function (event) {
+     document.addEventListener("keydown", function (event) {
     if (
         event.key === "F12" || 
-        (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "J")) || 
-        (event.ctrlKey && event.key === "U")
+        event.key === "F11" || 
+        event.key === "F5" ||
+        (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "J" || event.key === "C")) || 
+        (event.ctrlKey && (event.key === "U" || event.key === "S" || event.key === "P" || event.key === "H" || event.key === "A" || event.key === "F"))
     ) {
         showWarning();
         event.preventDefault();
     }
 });
 
-// Disable right-click
+// Disable Right-Click
 document.addEventListener("contextmenu", function (event) {
     showWarning();
     event.preventDefault();
 });
 
-// Show a colorful warning message
+// Block Page Source Viewing
+document.onkeydown = function (e) {
+    if (e.ctrlKey && e.key === "u") {
+        showWarning();
+        return false;
+    }
+};
+
+// Detect Developer Tools Opened
+setInterval(function () {
+    let before = new Date().getTime();
+    debugger;
+    let after = new Date().getTime();
+    if (after - before > 100) {
+        document.write("<h1 style='color:red; text-align:center;'>🚫 Access Denied! Developer Tools are Disabled.</h1>");
+    }
+}, 500);
+
+// Show a Colorful Warning Message
 function showWarning() {
     let warningBox = document.createElement("div");
-    warningBox.innerHTML = "🚫 Access Denied! Developer Tools are Disabled.";
+    warningBox.innerHTML = "🚫 Access Denied! All Shortcuts Are Disabled.";
     warningBox.style.position = "fixed";
     warningBox.style.top = "50%";
     warningBox.style.left = "50%";
