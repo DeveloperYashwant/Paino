@@ -243,29 +243,29 @@ body {
 //     }
 // });
 
-// Disable Right-Click
-document.addEventListener("contextmenu", function (event) {
-    showWarning();
-    event.preventDefault();
-});
+// // Disable Right-Click
+// document.addEventListener("contextmenu", function (event) {
+//     showWarning();
+//     event.preventDefault();
+// });
 
-// Block Page Source Viewing
-document.onkeydown = function (e) {
-    if (e.ctrlKey && e.key === "u") {
-        showWarning();
-        return false;
-    }
-};
+// // Block Page Source Viewing
+// document.onkeydown = function (e) {
+//     if (e.ctrlKey && e.key === "u") {
+//         showWarning();
+//         return false;
+//     }
+// };
 
-// Detect Developer Tools Opened
-setInterval(function () {
-    let before = new Date().getTime();
-    debugger;
-    let after = new Date().getTime();
-    if (after - before > 100) {
-        document.write("<h1 style='color:red; text-align:center;'>🚫 Access Denied! Developer Tools are Disabled.</h1>");
-    }
-}, 500);
+// // Detect Developer Tools Opened
+// setInterval(function () {
+//     let before = new Date().getTime();
+//     debugger;
+//     let after = new Date().getTime();
+//     if (after - before > 100) {
+//         document.write("<h1 style='color:red; text-align:center;'>🚫 Access Denied! Developer Tools are Disabled.</h1>");
+//     }
+// }, 500);
 
 // Show a Colorful Warning Message
 function showWarning() {
