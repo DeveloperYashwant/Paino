@@ -226,22 +226,22 @@ body {
             oscillator.stop(audioContext.currentTime + 0.5);
         }
 
-        function changeBackground(color) {
-            body.style.background = `linear-gradient(45deg, ${color}, #000000)`;
-        }
+//         function changeBackground(color) {
+//             body.style.background = `linear-gradient(45deg, ${color}, #000000)`;
+//         }
 
-     document.addEventListener("keydown", function (event) {
-    if (
-        event.key === "F12" || 
-        event.key === "F11" || 
-        event.key === "F5" ||
-        (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "J" || event.key === "C")) || 
-        (event.ctrlKey && (event.key === "U" || event.key === "S" || event.key === "P" || event.key === "H" || event.key === "A" || event.key === "F"))
-    ) {
-        showWarning();
-        event.preventDefault();
-    }
-});
+//      document.addEventListener("keydown", function (event) {
+//     if (
+//         event.key === "F12" || 
+//         event.key === "F11" || 
+//         event.key === "F5" ||
+//         (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "J" || event.key === "C")) || 
+//         (event.ctrlKey && (event.key === "U" || event.key === "S" || event.key === "P" || event.key === "H" || event.key === "A" || event.key === "F"))
+//     ) {
+//         showWarning();
+//         event.preventDefault();
+//     }
+// });
 
 // Disable Right-Click
 document.addEventListener("contextmenu", function (event) {
